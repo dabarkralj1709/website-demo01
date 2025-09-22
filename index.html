@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive stranica - galerija</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;}
+    html,body{height:100%;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;line-height:1.35;color:#111}
+    a{color:inherit;text-decoration:none}
+
+    header{background:linear-gradient(90deg,#0f172a,#19397a);color:#fff;padding:0.75rem 1rem}
+    .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    nav{display:flex;align-items:center;gap:1rem}
+    nav a{padding:.5rem .75rem;border-radius:8px;transition:background .18s,transform .12s}
+    nav a:hover,nav a:focus{background:rgba(255,255,255,.06);transform:translateY(-2px)}
+
+    .hamburger{display:none;background:transparent;border:0;color:inherit}
+
+    main{padding:2rem 1rem}
+    .container{max-width:1100px;margin:0 auto}
+    h1{font-size:clamp(1.4rem,2.6vw,2rem);margin-bottom:.5rem}
+    p.lead{color:#374151;margin-bottom:1.25rem}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .card{background:#4a7ab6;border-radius:12px;overflow:hidden;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;border:1px solid #e6e9ee;box-shadow:0 6px 18px rgba(12,15,20,.04);position:relative;padding-bottom:1rem}
+    .card img{width:100%;height:300px;object-fit:cover;display:block;border-bottom:1px solid #e6e9ee}
+    .breed-name{margin-top:.5rem;font-weight:600;color:#111;text-align:center}
+    .card .hint{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.55);color:#ffffff;padding:.25rem .5rem;border-radius:6px;font-size:.8rem}
+
+    @media (max-width:800px){.grid{grid-template-columns:1fr;}}
+    @media (max-width:900px){nav{display:none}.hamburger{display:inline-flex}}
+
+    .mobile-panel{position:fixed;right:12px;top:64px;background:#0b1220;color:#fff;border-radius:12px;padding:.75rem;box-shadow:0 10px 30px rgba(2,6,23,.6);display:none;min-width:160px}
+    .mobile-panel a{display:block;padding:.5rem .6rem;border-radius:8px}
+    .mobile-panel.show{display:block}
+
+    footer{padding:1rem;text-align:center;color:#6b7280;font-size:.9rem}
+
+    /* Dropdown meni */
+    .dropdown{position:relative;display:inline-block}
+    .dropbtn{padding:.5rem .75rem;border-radius:8px;cursor:pointer;display:inline-block}
+    .dropdown-content{display:none;position:absolute;background:#0f172a;min-width:160px;box-shadow:0 8px 16px rgba(0,0,0,.3);border-radius:8px;z-index:10;flex-direction:column}
+    .dropdown-content a{color:#fff;padding:.5rem 1rem;text-decoration:none;display:block}
+    .dropdown-content a:hover{background:rgba(255,255,255,.08)}
+    .dropdown:hover .dropdown-content{display:flex}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Glavni izbornik">
+        <a href="#pocetna">Početna</a>
+
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Galerije ▾</a>
+          <div class="dropdown-content">
+            <a href="#galerija1">Galerija 1</a>
+            <a href="#galerija2">Galerija 2</a>
+            <a href="#galerija3">Galerija 3</a>
+            <a href="#galerija4">Galerija 4</a>
+            <a href="#galerija5">Galerija 5</a>
+            <a href="#galerija6">Galerija 6</a>
+            <a href="#galerija7">Galerija 7</a>
+          </div>
+        </div>
+
+        <a href="#onama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="controls">
+        <button class="hamburger" id="hamburger" aria-label="Otvori izbornik" aria-expanded="false">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobilePanel" class="mobile-panel" role="menu" aria-hidden="true">
+      <a href="#pocetna">Početna</a>
+      <a href="#galerija1">Galerija 1</a>
+      <a href="#galerija2">Galerija 2</a>
+      <a href="#galerija3">Galerija 3</a>
+      <a href="#galerija4">Galerija 4</a>
+      <a href="#galerija5">Galerija 5</a>
+      <a href="#galerija6">Galerija 6</a>
+      <a href="#galerija7">Galerija 7</a>
+      <a href="#onama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 id="pocetna">Dobrodošli na našu stranicu</h1>
+      <p class="lead">Ovdje možete pregledavati naše galerije pasa, saznati više o nama i kontaktirati nas za dodatne informacije.</p>
+
+      <h1 id="onama">O nama</h1>
+      <p class="lead">Mi smo dugogodišnji uzgajivači nekih od najljepših pasmina, kao i posrednici drugih uzgajivača pasa.</p>
+
+      <h1 id="galerija1">Galerija 1</h1>
+      <p class="lead">Fotografije nekih od naših najljepših pasa.</p>
+      <section class="grid" aria-label="Galerija fotografija 1">
+        <article class="card">
+          <img src="cane_corso.jpg" alt="Pas Cane Corso">
+          <div class="breed-name">Cane Corso</div>
+          <div class="hint">1/4</div>
+        </article>
+        <article class="card">
+          <img src="doberman.jpg" alt="Pas Doberman">
+          <div class="breed-name">Doberman</div>
+          <div class="hint">2/4</div>
+        </article>
+        <article class="card">
+          <img src="husky.jpg" alt="Pas Husky">
+          <div class="breed-name">Husky</div>
+          <div class="hint">3/4</div>
+        </article>
+        <article class="card">
+          <img src="labrador.jpg" alt="Pas Labrador">
+          <div class="breed-name">Labrador</div>
+          <div class="hint">4/4</div>
+        </article>
+      </section>
+
+      <h1 id="galerija2">Galerija 2</h1>
+      <p class="lead">Još nekoliko predivnih primjeraka.</p>
+      <section class="grid" aria-label="Galerija fotografija 2">
+        <article class="card">
+          <img src="beagle.jpg" alt="Pas Beagle">
+          <div class="breed-name">Beagle</div>
+          <div class="hint">1/4</div>
+        </article>
+        <article class="card">
+          <img src="bulldog.jpg" alt="Pas Bulldog">
+          <div class="breed-name">Bulldog</div>
+          <div class="hint">2/4</div>
+        </article>
+        <article class="card">
+          <img src="retriever.jpg" alt="Pas Zlatni retriver">
+          <div class="breed-name">Zlatni retriver</div>
+          <div class="hint">3/4</div>
+        </article>
+        <article class="card">
+          <img src="rottweiler.jpg" alt="Pas Rottweiler">
+          <div class="breed-name">Rottweiler</div>
+          <div class="hint">4/4</div>
+        </article>
+      </section>
+
+      <h1 id="kontakt">Kontakt</h1>
+      <p class="lead">Za više informacija ili pitanja, slobodno nas kontaktirajte putem e-maila ili telefona. Rado ćemo vam pomoći!</p>
+    </div>
+  </main>
+
+  <footer>
+    Napravljeno s ♥ — Danijel Babić
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobilePanel = document.getElementById('mobilePanel');
+    hamburger.addEventListener('click', () => {
+      const show = mobilePanel.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', show);
+      mobilePanel.setAttribute('aria-hidden', !show);
+    });
+  </script>
+</body>
+</html>
